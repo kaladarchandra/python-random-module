@@ -1,0 +1,76 @@
+
+
+  Functions For Integers 
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  1)random.randrange(start,stop)
+    random.randrange(start,stop,[step])
+    random.randrange(stop)	
+	Three functions are same we will explore one by one
+	
+	random.randrange(start,stop) :
+    This function returns a random number from interval [start,step). For example 
+    random.randrange( 3 , 9) randomly returns a number in [ 3 ,4,5,6,7,8] , but it doesn't include the last  element 9 . Another example
+    random.randrange(3,7) it randomly returns number in [3,4,5,6], remember it never includes the  last  number.
+
+    (Execution)
+    >>> import random
+    >>> random.randrange( 3 , 9 ) 			# A random number from range [3, 9)
+    5
+    >>> for x in range(10):				
+    	print( random.randrange( 3 , 9 ), end = ' ' )
+	
+    7 7 4 7 8 6 3 5 7 6 					# Ignore the looping construct if you don't understad it, we just executed the random.randrange(3,9) 10 times and 		
+											# got 10 randomly choosen elements from given interval.
+
+	random.randrange(start,stop,step):
+    If you give the third argumen i.e.. random.randrange(start, stop,step), 'start' will be incremented by 'step' until it reaches 'stop'. 
+	For example random.randrange( 2 , 13 , 3) : This will start at 2 and increments by 3 upto but not including 13 i.e.. [ 2 , 5 , 8, 11 ], 
+	it will return random number from it. And never the  number   3 or 5 , even though 2 < 3 < 13, because it will only consider numbers 
+	[ 2 , 2+3 , 2+3+3 , 2+3+3+3, ... upto but not including 13]. and the step argument is not needed by default.
+	
+	(Execution)
+    >>> random.randrange(2,13,3)
+    8
+    >>> random.randrange(2,13,3)
+    5
+    >>> random.randrange(2,13,3)
+    8
+    >>> random.randrange(2,13,3)
+    11
+
+	random.randrange(stop) :
+    And if you give single number, it will start from zero . Example random.randrange(7) will return a random number from 0 to 6.
+	That is random.randrange(7) =  random.randrange(0,7).
+	
+	(Execution)
+	>>> random.randrange(5)
+	2
+	>>> random.randrange(5)
+	3
+	>>> random.randrange(5)
+	1
+	>>> random.randrange(5)
+	2
+	>>> random.randrange(5)
+	4
+    
+	
+	
+	
+  2)random.randint(a,b) :
+    This is very similar to the above randrange() method. It returns random integer in the range [a,b], it includes b too.
+    For example random.randint(2,7) returns a random integer from [2,3,4,5,6,7]
+	
+	(Execution)
+	>>> random.randint(2,7)
+	7
+	>>> random.randint(2,7)
+	6
+	>>> random.randint(2,7)
+	4
+	>>> random.randint(2,7)
+	5
+	>>> random.randint(2,7)
+	3
+	
+	
