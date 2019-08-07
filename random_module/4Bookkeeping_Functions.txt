@@ -1,0 +1,117 @@
+	Bookkeeping functions
+	-----------------------------------------------------------------------------
+	1)random.seed(a=None, version=2)
+	2)random.getstate()
+	3)random.setstate(state)
+	4)random.getrandbits(k)
+
+	Random module is about randomness, we generate random real numbers, random intergers, distributions.....
+	Sometimes we need the same random output pattern in one program in other i.e.. we do some operations and 
+	get various outputs on them and after a while or in other program, we will do the similar operations and 
+	we need the same outputs as the previous operation.But random module gives pseudorandom output each time!
+	In order to 'bookkeep' the random behaviour to be used later we will use book keeping functions.
+
+	
+  1)random.seed(a = None, version): 
+	Ignore version.In real scenario we will give a real number as it's input i.e.., random.seed(12.592) .When other
+	time when we giving the same real number as input and executing the same set of instructions (or same script again) 
+	we will get the 	same output as we got in the first programm.No matter how many times we do that  we will get 
+	the same  output.If you execute the same program with out seed it may give different ouputs.
+	
+	(EXECUTION)	
+	>>> import random
+	>>> random.seed(2)											# Setting the seed, 2, and calling the methods.
+	>>> random.randint(1, 10)
+	1
+	>>> random.random()
+	0.09158478740507359
+	>>> random.choice(  [1, 2, 3, 4, 5]  )
+	3
+	>>> random.normalvariate(2, 5)
+	12.899473892722071
+	>>> 
+																# At other time. Calling the same methods with same arguments
+	>>> import random
+	>>> random.randint(1, 10)
+	7
+	>>> random.random()
+	0.46751257301122906
+	>>> random.choice(  [1, 2, 3, 4, 5]  )
+	5
+	>>> random.normalvariate(2, 5)
+	-0.5123958790485181											# Note that everyoutput is different.
+	>>> 
+																# At other time. Calling the same method with same arguments. 
+																# This time we will give the same seed		
+	>>> import random
+	>>> random.seed(2)
+	>>> random.randint(1, 10)
+	1
+	>>> random.random()
+	0.09158478740507359
+	>>> random.choice(  [1, 2, 3, 4, 5]  )
+	3
+	>>> random.normalvariate( 2, 5 )
+	12.899473892722071
+																# LOOK EVERY SINGLE OUTPUT IS SAME AS THE FIRST ONE
+																
+	>>> import random											# At other time, same seed, same code but order is differnt.
+	>>> random.seed(2)
+	>>> random.random()
+	0.9560342718892494
+	>>> random.random()
+	0.9478274870593494
+	>>> random.choice(  [1, 2, 3, 4, 5]  )
+	1
+	>>> random.normalvariate(2, 5)
+	-3.482869040141008
+	
+	*With same seed and same program how many times we executes we will always get same output.
+	
+	
+	
+	
+	
+   2)random.getstate() :
+     Returns an object capturing the current internal state of the generator. This object can be passed to setstate() to restore the state.
+	 We set to setstate() and  call the same methods that we called after getstate() method then we will get same output.
+   
+   3)random.setstate() :
+     state should have been obtained from a previous call to getstate(), and setstate() restores the internal state of the generator to what 
+	 it was at the time getstate() was called. These two will be explained by the given example.	 
+	    
+	(EXECUTION)
+	>>> import random
+	>>> k = list(range(10))
+	>>> s = random.getstate()					# We are storing the internal state of the generator and executing the code.
+	>>> 
+	>>> random.choice(k)
+	6
+	>>> random.randint(10, 15)
+	14
+	>>> random.normalvariate(2, 1)
+	2.4174342330084984
+	>>> random.choices(k , k = 10)
+	[6, 2, 5, 4, 7, 5, 7, 3, 2, 3]
+	>>>
+	>>>
+	>>> random.choice(k)						# We execute the same code but outputs are differnt.
+	5
+	>>> random.randint(10, 15)
+	10
+	>>> random.normalvariate(2, 1)
+	1.6771555417400275
+	>>> random.choices(k , k = 10)
+	[8, 0, 3, 4, 7, 1, 5, 3, 4, 2]
+	>>> 
+	>>> 
+	>>> random.setstate(s)						# We set the state (we got it from getstate() ) and execute the same script again.
+	>>> random.choice(k)
+	6
+	>>> random.randint(10, 15)
+	14
+	>>> random.normalvariate(2, 1)
+	2.4174342330084984
+	>>> random.choies(k , k = 10)
+	>>> random.choices(k , k = 10)
+	[6, 2, 5, 4, 7, 5, 7, 3, 2, 3]				# Look we got the same outputs.

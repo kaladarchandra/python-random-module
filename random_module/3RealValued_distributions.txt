@@ -1,0 +1,87 @@
+	 
+  FUNCTIONS FOR REAL VALUED DISTRIBUTIONS
+  --------------------------------------------------------------------------------------------------------------------------------------------------------
+  1)random.random()
+  2)random.uniform(a, b)
+  3)random.triangular(low, high, mode)
+  4)random.betavariate(alpha, beta)
+  5)random.expovariate(lambd)
+  6)random.gammavariate(alpha, beta)
+  7)random.gauss(mu, sigma)
+  8)random.lognormvariate(mu, sigma)
+  9)random.normalvariate(mu, sigma)
+  10)random.vonmisesvariate(mu, kappa)
+  11)random.paretovariate(alpha)
+  12)random.weibullvariate(alpha, beta)
+**You need to know the distributions to understand these functions.
+  Im not going to explain the distributions here as they are too complex each.
+  Some requires entire projects about them. Anyway you only need to know few common distributions (like uniforma distribution and normal distribution)
+  in them to understand how all works. But you could see the approximate visulizations of them in the code module.
+  
+  The provided built-in distributions are 
+  
+  1)random.random() : uniform distribution of real numbers from 0 to 1, given implicitly.
+	(Executing)
+	>>> import random
+	>>> random.random()			#Single output from uniform distribution from 0 to 1
+	0.885766239163556
+	
+  2)random.uniform() : uniform distribution of real numbers from 2 to 3, given explicitly.Always takes explicitly.
+	(Executing)
+	>>> random.uniform(2, 3)	#Single output from uniform distribution.
+	2.886000806931476
+	
+  3)random.triangular() :
+	(Executing)
+	>>> random.triangular(2,3,2.5)
+	2.3835682410885686
+	>>> [round(random.triangular(2, 3, 2.5) , 3) for i in range(10)] 		#A SAMPLE from triangular distribution. It's size is 10.
+	[2.376, 2.125, 2.033, 2.568, 2.22, 2.847, 2.577, 2.168, 2.588, 2.653]
+	
+    --- All the remaining are single outputs. When you execute them several times you will see the distribution clearly.
+
+  4)random.betavariate() :
+	(Executing)
+	>>> random.betavariate(1,1)
+	0.4123300872382779
+
+  5)random.expovariate() : 
+	(Executing)
+	>>> random.expovariate(1.12)
+	0.4527190124487336
+	
+  
+  6)random.gammavariate() : 
+	(Executing)
+	>>> random.gammavariate(1,5)
+	3.578951573748709 
+  
+  7)random.gauss() : 
+	(Executing)
+	>>> random.gauss(3, 0.3)
+	3.14224729962722
+ 
+  8)random.lognormvariate() :
+	(Executing)
+	>>> random.lognormvariate(5, 12)
+	254330.99640186923
+  
+  9)random.normalvariate() : 
+	(Executing)
+	>>> random.normalvariate(5 , 12)
+	7.75928015840525
+  
+  10)random.vonmisesvariate() : 
+	(Executing)
+	>>> random.vonmisesvariate(2, 8)
+	1.7045989487914743
+  
+  11)random.paretovariate() : 
+	(Executing)
+	>>> random.paretovariate(12)
+	1.0925841343199727
+  
+  12)random.weibullvariate() : 
+	(Executing)
+	>>> random.weibullvariate(2, 12)
+	1.3282853430205002
